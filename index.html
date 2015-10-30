@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Loading...</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var loadtimer = setInterval(function(){ loading() }, 100),
+			ok = false;
+		document.addEventListener("click", function(){
+			if (ok)
+				loadtimer = setInterval(function(){ loading() }, 100);
+			else
+				clearInterval(loadtimer);
+			ok = !ok;
+		});
+        
+		var t = 0, N = 10;
+		function loading(){
+			var start = t % N;
+			for (var i = 0; i < N; i ++){	
+				var offset = (start + i < N) ? i : i - 2 * (start + i - (N - 1));
+				var index = Math.floor(t / N) % 2 == 0 ? start + offset : (N - 1) - (start + offset);
+				document.getElementById("load-" + (index + 1).toString()).style.opacity = i * 0.1;
+			}
+			++t;
+		}
+	</script>
+	<div style = "position: absolute; top: 50%; left: 50%; margin-top: -100px; margin-left: -100px; width: 200px;"> 
+		<h3 style="color: #ccc; text-shadow: 1px 1px 1px #999;font-size: 24px; margin: 2px; text-align: center;">Please Wait</h3>
+		<div id = "load-1" style="width: 20px; height: 20px; float:left; background-color: rgb(255, 128, 0);"></div>
+		<div id = "load-2" style="width: 20px; height: 20px; float:left; background-color: rgb(255, 128, 0);"></div>
+		<div id = "load-3" style="width: 20px; height: 20px; float:left; background-color: rgb(255, 128, 0);"></div>
+		<div id = "load-4" style="width: 20px; height: 20px; float:left; background-color: rgb(255, 128, 0);"></div>
+		<div id = "load-5" style="width: 20px; height: 20px; float:left; background-color: rgb(255, 128, 0);"></div>
+		<div id = "load-6" style="width: 20px; height: 20px; float:left; background-color: rgb(255, 128, 0);"></div>
+		<div id = "load-7" style="width: 20px; height: 20px; float:left; background-color: rgb(255, 128, 0);"></div>
+		<div id = "load-8" style="width: 20px; height: 20px; float:left; background-color: rgb(255, 128, 0);"></div>
+		<div id = "load-9" style="width: 20px; height: 20px; float:left; background-color: rgb(255, 128, 0);"></div>
+		<div id = "load-10" style="width: 20px; height: 20px; float:left; background-color: rgb(255, 128, 0);"></div>
+		<div style="text-align:center"> <b style="color: #444; font-size: 16px;">Loading</b> </div>
+	</div>
+	
+</body>
+</html>
