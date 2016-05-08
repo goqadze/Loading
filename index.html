@@ -5,11 +5,11 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var loadtimer = setInterval(function(){ loading() }, 100),
+		var loadtimer = setInterval(loading, 100),
 			ok = false;
 		document.addEventListener("click", function(){
 			if (ok)
-				loadtimer = setInterval(function(){ loading() }, 100);
+				loadtimer = setInterval(loading, 100);
 			else
 				clearInterval(loadtimer);
 			ok = !ok;
