@@ -10,7 +10,7 @@
 			var start = t % N;
 			for (var i = 0; i < N; i++){	
 				var offset = (start + i < N) ? i : i - 2 * (start + i - (N - 1));
-				var index = Math.floor(t / N) % 2 == 0 ? start + offset : (N - 1) - (start + offset);
+				var index = ~~(t / N) % 2 == 0 ? start + offset : (N - 1) - (start + offset);
 				document.getElementById("load-" + (index + 1).toString()).style.opacity = i * 0.1;
 			}
 			++t;
